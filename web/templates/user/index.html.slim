@@ -1,0 +1,10 @@
+h1 Listing Users
+p= "Page: #{@page_number}"
+p= "Page Size: #{@page_size}"
+p= "Total Pages: #{@total_pages}"
+p= "Total Entries: #{@total_entries}"
+table.table
+  = for user <- @users do
+    tr
+      td= render "_user.html", user: user
+      td= link "View", to: user_path(@conn, :show, user.id)
